@@ -15,6 +15,7 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
+    padding-bottom: 60px;
    
     overflow: hidden;
     transition: background-image 0.8s ease-in-out;
@@ -236,10 +237,15 @@ button {
   }
   
 footer {
-    position: absolute;
-    bottom: 10px;
-    width: 100%;
-    text-align: center;
-    font-size: 14px;
-    z-index: 1;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.85rem;
+  backdrop-filter: blur(4px);
+  z-index: 10;
 }
