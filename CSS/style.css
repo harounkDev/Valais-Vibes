@@ -48,6 +48,8 @@ body {
     padding: 30px;
     text-align: center;
     animation: fadeIn 1s ease-in-out;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 input[type="text"] {
@@ -248,4 +250,19 @@ footer {
   font-size: 0.85rem;
   backdrop-filter: blur(4px);
   z-index: 10;
+}
+@media (max-width: 480px) {
+  .container {
+      padding: 15px;
+      border-radius: 10px;
+  }
+
+  .forecast-day {
+      min-width: 90px;
+      padding: 10px;
+  }
+
+  footer {
+      font-size: 0.75rem;
+  }
 }
