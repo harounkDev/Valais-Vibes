@@ -1,0 +1,134 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background-image: url("../images/default.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+   
+    overflow: hidden;
+    transition: background-image 0.8s ease-in-out;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    
+    backdrop-filter: blur(3px);
+    z-index: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.container {
+    position: relative;
+    background-color: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    width: 90%;
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    z-index: 1;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    text-align: center;
+    margin-right: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(145deg, #56ab2f, #a8e063);
+    color: white;
+    margin-bottom: 15px;
+}
+
+.weather-icon {
+    width: 80px;
+    height: 80px;
+    margin: 10px auto;
+}
+
+.temp {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.forecast-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.forecast-day {
+    flex: none;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    text-align: center;
+    min-width: 80px;
+}
+
+#suggestions {
+    list-style: none;
+    text-align: left;
+    background: rgba(255,255,255,0.8);
+    color: #333;
+    border-radius: 10px;
+    margin-top: -10px;
+    position: absolute;
+    width: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+#suggestions li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+#suggestions li:hover {
+    background: #ddd;
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    z-index: 1;
+}
