@@ -1,29 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valais Vibes</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valais Vibes</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="CSS/style.css" />
 </head>
 <body>
-    
-<div class="overlay"></div>
-<div class="container">
-    <h1>Valais Vibes</h1>
-    <input type="text" id="city" placeholder="Enter City" oninput="autocompleteCity()">
+  <!-- Dark overlay for the background -->
+  <div class="overlay"></div>
+
+  <div class="container">
+    <h1>Peak Pulse</h1>
+
+    <input 
+      type="text" 
+      id="city" 
+      placeholder="Enter City" 
+      oninput="autocompleteCity()"
+    />
     <ul id="suggestions"></ul>
+
     <button onclick="getWeather()">Explore</button>
 
     <div id="weather-info">
-        <img src="images/clear.jpg" class="weather-icon" id="icon" alt="weather icon" />
-        <div class="temp" id="temp">Hello 👋</div>
-        <div class="description" id="desc">Welcome to Valais Vibes</div>
-        <div class="quote" id="quote">Start exploring weather forecasts 🌄</div>
+      <img 
+        src="images/clear.jpg" 
+        class="weather-icon" 
+        id="icon" 
+        alt="weather icon" 
+      />
+      <div class="temp" id="temp">Hello 👋</div>
+      <div class="description" id="desc">Welcome to Peak Pulse</div>
+      <div class="quote" id="quote">Start exploring weather forecasts 🌄</div>
     </div>
+
+
+    <div id="forecast">
+      <h2>3-Day Forecast</h2>
+      <div class="forecast-container" id="forecast-container">
     
-<footer>Made with ❤️ in Switzerland by Haroun Khenfri</footer>
-<script src="js/main.js"></script>
+      </div>
+    </div>
+  </div>
+
+ 
+  <footer>
+    Made with ❤️ in Switzerland by Haroun Khenfri
+  </footer>
+
+
+  <script src="js/main.js"></script>
 </body>
 </html>

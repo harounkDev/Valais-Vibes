@@ -1,10 +1,10 @@
-// Replace with your actual API key
+
 const apiKey = '53018b097dc32b4f8e6ef76ee69d6b80';
 
 function getWeather() {
   const city = document.getElementById('city').value;
 
-  // 1) Fetch CURRENT weather
+  
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
     .then(response => response.json())
     .then(data => {
@@ -13,7 +13,7 @@ function getWeather() {
       document.getElementById('desc').innerHTML = data.weather[0].description;
       document.getElementById('icon').src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
-      // Change background & quote
+      
       setBackground(data.weather[0].main);
       setQuote();
     })
@@ -21,19 +21,19 @@ function getWeather() {
       alert('City not found, please try again.');
     });
 
-  // 2) Fetch FORECAST (next 3 segments)
+  
   fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`)
     .then(response => response.json())
     .then(forecastData => {
-      console.log("Forecast Data:", forecastData); // Debug: view in browser console
+      console.log("Forecast Data:", forecastData); 
 
       const forecastContainer = document.getElementById('forecast-container');
-      forecastContainer.innerHTML = ''; // Clear previous results
+      forecastContainer.innerHTML = ''; 
 
       // Show first 3 segments from the 5-day forecast
       const dailyForecasts = forecastData.list.slice(0, 3);
 
-      // Fallback if no data
+
       if (!dailyForecasts.length) {
         forecastContainer.innerHTML = "<p>No forecast data available.</p>";
         return;
