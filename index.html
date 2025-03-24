@@ -25,6 +25,10 @@
     <ul id="suggestions"></ul>
 
     <button onclick="getWeather()">Explore</button>
+    <button class="detect-btn" onclick="detectLocation()">
+        <i>📍</i> Detect My Location
+      </button>
+      
 
     <div id="weather-info">
       <img 
@@ -37,7 +41,24 @@
       <div class="description" id="desc">Welcome to Peak Pulse</div>
       <div class="quote" id="quote">Start exploring weather forecasts 🌄</div>
     </div>
-
+    <div id="today-highlights" class="today-highlights">
+        <h3>Today’s Highlights</h3>
+        <div class="highlight-grid">
+            <div class="highlight-card">
+                <h4>Feels Like</h4>
+                <p id="feels-like">--</p>
+            </div>
+            <div class="highlight-card">
+                <h4>Humidity</h4>
+                <p id="humidity">--</p>
+            </div>
+            <div class="highlight-card">
+                <h4>Wind</h4>
+                <p id="wind">--</p>
+            </div>
+        </div>
+    </div>
+    
 
     <div id="forecast">
       <h2>3-Day Forecast</h2>
