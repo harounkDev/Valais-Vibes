@@ -100,11 +100,7 @@ button {
     font-size: 1.2rem;
   }
   
-.weather-icon {
-    width: 80px;
-    height: 80px;
-    margin: 10px auto;
-}
+
 
 .temp {
     font-size: 40px;

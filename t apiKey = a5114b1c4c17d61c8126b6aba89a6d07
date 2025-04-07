@@ -1,0 +1,35 @@
+[33mcommit 8faa0bc0fec45c9b18c27f91d8fd27a7028072ef[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: haroun <haroun.khenfri@powercoders.org>
+Date:   Mon Mar 24 21:51:24 2025 +0100
+
+    Remove API key from tracked files
+
+[33mcommit 34af42dd6a5dda16eeca3a4c8f0683c52ac9b468[m
+Author: haroun <haroun.khenfri@powercoders.org>
+Date:   Mon Mar 24 15:29:36 2025 +0100
+
+    fixing the overflow
+
+[33mcommit b76bcd9b87ada88b73e515fbc9e34adc48fbfe4b[m
+Author: haroun <haroun.khenfri@powercoders.org>
+Date:   Mon Mar 24 15:23:28 2025 +0100
+
+    fixing bottom padding
+
+[33mcommit 1518e0dca01bf33c8cc72d0ff68df2cd093b5319[m
+Author: haroun <haroun.khenfri@powercoders.org>
+Date:   Mon Mar 24 15:05:21 2025 +0100
+
+    improve the forecast interface
+
+[33mcommit c140d042dac2190a6131c6d09de2e06d1b20f1a7[m
+Author: haroun <haroun.khenfri@powercoders.org>
+Date:   Mon Mar 24 14:21:18 2025 +0100
+
+    fix the interface
+
+[33mcommit a41686823ec0fc54c61f261505203bb3fe39247f[m
+Author: haroun <haroun.khenfri@powercoders.org>
+Date:   Mon Mar 24 13:53:18 2025 +0100
+
+    initial commit
