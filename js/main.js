@@ -2,7 +2,6 @@ const apiKey = '53018b097dc32b4f8e6ef76ee69d6b80';
 
 function getWeather(cityName) {
   const city = cityName || document.getElementById('city').value.trim();
-
   if (!city) {
     alert('Please enter a city.');
     return;
@@ -11,7 +10,7 @@ function getWeather(cityName) {
   const highlights = document.querySelector('.today-highlights');
   highlights.classList.add('show');
 
-  // 1. CURRENT WEATHER
+  
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
     .then(response => {
       if (!response.ok) throw new Error('City not found');
@@ -22,7 +21,6 @@ function getWeather(cityName) {
       document.getElementById('desc').innerHTML = data.weather[0].description;
       document.getElementById('icon').src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
-      // Today's highlights
       document.getElementById('feels-like').innerHTML = `${Math.round(data.main.feels_like)}°C`;
       document.getElementById('humidity').innerHTML = `${data.main.humidity}%`;
       document.getElementById('wind').innerHTML = `${Math.round(data.wind.speed)} m/s`;
@@ -30,12 +28,14 @@ function getWeather(cityName) {
       document.querySelector('.today-highlights').style.display = 'block';
       setBackground(data.weather[0].main);
       setQuote();
+      updateHarryMood(data.weather[0].main);
+
     })
     .catch(() => {
       alert('City not found, please try again.');
     });
 
-  // 2. 3-DAY FORECAST
+  
   fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`)
     .then(response => response.json())
     .then(forecastData => {
@@ -70,19 +70,23 @@ function getWeather(cityName) {
     });
 }
 
-// Set background image based on weather
+
 function setBackground(weather) {
   const backgrounds = {
-    clear: '../images/clear.jpg',
-    clouds: '../images/clouds.jpg',
-    rain: '../images/rain.jpg',
-    snow: '../images/snow.jpg',
-    default: '../images/default.jpg'
+    clear: 'images/clear.png',
+    clouds: 'images/clouds.png',
+    rain: 'images/rain.png',
+    snow: 'images/snow.png',
+    thunderstorm: 'images/storm.png',
+    default: 'images/default.png'
   };
-  document.body.style.backgroundImage = `url(${backgrounds[weather.toLowerCase()] || backgrounds.default})`;
+
+  const key = weather.toLowerCase();
+  const image = backgrounds[key] || backgrounds.default;
+  document.body.style.backgroundImage = `url(${image})`;
 }
 
-// Set random quote
+
 function setQuote() {
   const quotes = [
     "Every mountain top is within reach if you just keep climbing.",
@@ -90,10 +94,50 @@ function setQuote() {
     "In every walk with nature, one receives far more than he seeks.",
     "Adventure awaits around every corner."
   ];
-  document.getElementById('quote').innerHTML = quotes[Math.floor(Math.random() * quotes.length)];
+  document.getElementById('quote').innerHTML =
+    quotes[Math.floor(Math.random() * quotes.length)];
+}
+function updateHarryMood(weather) {
+  const harry = document.querySelector('.harry-helper img');
+  const quote = document.querySelector('.harry-helper p');
+  const parallaxBg = document.querySelector('.parallax-bg');
+  const moodMap = {
+    Clear: {
+      img: 'images/clear.png',
+      text: 'Harry says: Sunshine makes me purr 😸'
+    },
+    Clouds: {
+      img: 'images/clouds.png',
+      text: 'Harry whispers: Purr... It’s a cozy cloudy day 🐱'
+    },
+    Rain: {
+      img: 'images/rain.png',
+      text: 'Harry complains: Ugh, not a fan of wet paws 🌧️'
+    },
+    Snow: {
+      img: 'images/snow.png',
+      text: 'Harry meows: Snow is magical... but cold! ❄️'
+    },
+    Thunderstorm: {
+      img: 'images/storm.png',
+      text: 'Harry hides: Can I stay under the blanket? ⚡'
+    },
+    Default: {
+      img: 'images/default.png',
+      text: 'Harry says: Miaou! Let’s check the weather 🐾'
+    }
+  };
+
+  const mood = moodMap[weather] || moodMap.Default;
+  harry.src = mood.img;
+  quote.innerText = mood.text;
+  if (parallaxBg) {
+    parallaxBg.style.backgroundImage = `url('${mood.img}')`;
+  }
 }
 
-// Autocomplete feature
+
+
 function autocompleteCity() {
   const input = document.getElementById('city').value;
   const suggestionsList = document.getElementById('suggestions');
@@ -113,14 +157,14 @@ function autocompleteCity() {
         li.onclick = () => {
           document.getElementById('city').value = place.name;
           suggestionsList.innerHTML = '';
-          getWeather(place.name);  // 👈 Now trigger getWeather() only after value is set
+          getWeather(place.name);
         };
         suggestionsList.appendChild(li);
       });
     });
 }
 
-// Detect user's location
+
 function detectLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(position => {
@@ -131,7 +175,7 @@ function detectLocation() {
         .then(response => response.json())
         .then(data => {
           document.getElementById('city').value = data.name;
-          getWeather(data.name);  // Use detected city
+          getWeather(data.name);
         });
     }, () => {
       alert('Location access denied.');

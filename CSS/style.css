@@ -8,20 +8,22 @@
 body {
     font-family: 'Poppins', sans-serif;
     color: #fff;
-    background-image: url("../images/default.jpg");
+    background-image: url("../images/default.png");
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-size: contain;
+    background-position: center bottom;
+    background-attachment: fixed;
     height: 100vh;
     display: flex;
     align-items: center;
     padding-bottom: 60px;
-   
+    background-color: #1e2b3a;    
     overflow: hidden;
-    transition: background-image 0.8s ease-in-out;
+    transition: background-image 0.5s ease-in-out;
     min-height: 100vh;
     flex-direction: column;
     justify-content: space-between;
+    backdrop-filter: blur(4px)
 }
 
 .overlay {
@@ -223,6 +225,76 @@ button {
     font-size: 1rem;
     font-weight: 600;
   }
+  .harry-helper {
+    position: fixed;
+    bottom: 90px;
+    left: 30px;
+    width: 160px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  .harry-helper img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 6px;
+  }
+  
+  .harry-helper p {
+    font-size: 0.85rem;
+  color: #333;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+.parallax-bg {
+  background-image: url('../images/default.png'); /* change based on default */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  transform: translateZ(0);
+  will-change: transform;
+  animation: parallaxScroll 20s infinite linear;
+  opacity: 0.25; 
+}
+
+/* Smooth slow scroll effect */
+@keyframes parallaxScroll {
+  0% { background-position: center 0px; }
+  100% { background-position: center 100px; }
+}
+
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  
+  .harry-helper img {
+    animation: float 3s ease-in-out infinite;
+  }
+  @media (max-width: 768px) {
+    .harry-helper {
+      left: 50%;
+      bottom: 40px;
+      transform: translateX(-50%);
+      width: 140px;
+    }
+  }
+  
+  
+  
   
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }

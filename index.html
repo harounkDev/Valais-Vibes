@@ -12,13 +12,14 @@
   <link rel="stylesheet" href="CSS/style.css" />
 </head>
 <body>
+  <div class="parallax-bg"></div>
 
   <div class="overlay"></div>
-
+  <div class="app-wrapper" style="position: relative;">
   <div class="container">
     <h1>Peak Pulse</h1>
 
-    <!-- City Input with Autocomplete -->
+    
     <input 
       type="text" 
       id="city" 
@@ -28,22 +29,22 @@
     />
     <ul id="suggestions"></ul>
 
-    <!-- Action Buttons -->
+   
     <button onclick="getWeather()">Explore</button>
     <button class="detect-btn" onclick="detectLocation()">
       <i>📍</i>
       Detect My Location
     </button>
 
-    <!-- Current Weather Display -->
+    
     <div id="weather-info">
       <img src="" id="icon" class="weather-icon" alt="Weather Icon" />
       <div class="temp" id="temp">Hello 👋</div>
-      <div class="description" id="desc">Welcome to Peak Pulse</div>
+      <div class="description" id="desc">Welcome to Peak Pulse With Harry</div>
       <div class="quote" id="quote">Start exploring weather forecasts 🌄</div>
     </div>
 
-    <!-- Today's Highlights -->
+    
     <div id="today-highlights" class="today-highlights" style="display: none;">
       <h3>Today’s Highlights</h3>
       <div class="highlight-grid">
@@ -62,20 +63,27 @@
       </div>
     </div>
 
-    <!-- Forecast Display -->
+    
     <div id="forecast">
       <h2>3-Day Forecast</h2>
       <div class="forecast-container" id="forecast-container">
-        <!-- JS will inject content here -->
+        
       </div>
     </div>
-  </div>
 
+    
+  </div>
+  <div class="harry-helper">
+    <img src="images/clear.png" alt="Harry says hi!">
+    <p>“Sunshine makes me purr 😸”</p>
+  </div>
+  </div>
   <footer>
     Made with ❤️ in Switzerland by Haroun Khenfri
   </footer>
 
   <!-- JS -->
   <script src="js/main.js"></script>
+
 </body>
 </html>
