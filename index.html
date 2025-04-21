@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valais Vibes</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Peak Pulse with Haroun</title>
+
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <!-- Main CSS -->
+
+  <!-- CSS -->
   <link rel="stylesheet" href="CSS/style.css" />
 </head>
 <body>
@@ -16,59 +18,64 @@
   <div class="container">
     <h1>Peak Pulse</h1>
 
+    <!-- City Input with Autocomplete -->
     <input 
       type="text" 
       id="city" 
       placeholder="Enter City" 
-      oninput="autocompleteCity()"
+      oninput="autocompleteCity()" 
+      autocomplete="off"
     />
     <ul id="suggestions"></ul>
 
+    <!-- Action Buttons -->
     <button onclick="getWeather()">Explore</button>
     <button class="detect-btn" onclick="detectLocation()">
-        <i>📍</i> Detect My Location
-      </button>
-      
+      <i>📍</i>
+      Detect My Location
+    </button>
 
+    <!-- Current Weather Display -->
     <div id="weather-info">
-
+      <img src="" id="icon" class="weather-icon" alt="Weather Icon" />
       <div class="temp" id="temp">Hello 👋</div>
       <div class="description" id="desc">Welcome to Peak Pulse</div>
       <div class="quote" id="quote">Start exploring weather forecasts 🌄</div>
     </div>
-    <div id="today-highlights" class="today-highlights">
-        <h3>Today’s Highlights</h3>
-        <div class="highlight-grid">
-            <div class="highlight-card">
-                <h4>Feels Like</h4>
-                <p id="feels-like">--</p>
-            </div>
-            <div class="highlight-card">
-                <h4>Humidity</h4>
-                <p id="humidity">--</p>
-            </div>
-            <div class="highlight-card">
-                <h4>Wind</h4>
-                <p id="wind">--</p>
-            </div>
-        </div>
-    </div>
-    
 
+    <!-- Today's Highlights -->
+    <div id="today-highlights" class="today-highlights" style="display: none;">
+      <h3>Today’s Highlights</h3>
+      <div class="highlight-grid">
+        <div class="highlight-card">
+          <h4>Feels Like</h4>
+          <p id="feels-like">--</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Humidity</h4>
+          <p id="humidity">--</p>
+        </div>
+        <div class="highlight-card">
+          <h4>Wind</h4>
+          <p id="wind">--</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forecast Display -->
     <div id="forecast">
       <h2>3-Day Forecast</h2>
       <div class="forecast-container" id="forecast-container">
-    
+        <!-- JS will inject content here -->
       </div>
     </div>
   </div>
 
- 
   <footer>
     Made with ❤️ in Switzerland by Haroun Khenfri
   </footer>
 
-
+  <!-- JS -->
   <script src="js/main.js"></script>
 </body>
 </html>
