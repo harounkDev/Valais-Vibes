@@ -17,8 +17,9 @@ body {
   /* transition: background-image 0.5s ease-in-out; */
   min-height: 100vh;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   backdrop-filter: blur(4px);
+  overflow-y: auto;
 }
 
 .overlay {
@@ -45,8 +46,8 @@ body {
     padding: 30px;
     text-align: center;
     animation: fadeIn 1s ease-in-out;
-    max-height: 90vh;
-    overflow-y: auto;
+    padding-bottom: 60px;
+
 }
 
 input[type="text"] {
@@ -250,12 +251,14 @@ button {
 
   .harry-bubble {
     display: flex;
-    align-items: flex-end;
-    gap: 15px;
-    margin: 20px 0;
-    flex-direction: row;
-    justify-content: center;
-    position: relative;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 16px;
+    margin-top: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 1s ease-in-out;
   }
   
   .harry-avatar {
@@ -264,6 +267,50 @@ button {
     border-radius: 7%;
     object-fit: cover;
     animation: float 3s ease-in-out infinite;
+  }
+  #quote {
+    margin-bottom: 40px;
+  }
+  
+  @media (max-width: 768px) {
+    .harry-bubble {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 80px;
+      padding: 16px;
+    }
+  
+    .harry-avatar {
+      width: 100px;
+      height: auto;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+  
+    .speech {
+      order: 1;
+      width: 100%;
+      padding: 10px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 12px;
+      text-align: center;
+    }
+  
+    .speech input {
+      margin-top: 10px;
+      width: 90%;
+    }
+  
+    .bubble-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+  
+    .bubble-actions button {
+      width: 100%;
+    }
   }
   
   .speech {
@@ -368,22 +415,22 @@ button {
   }
   
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  position: relative;
   width: 100%;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   color: #fff;
   text-align: center;
   padding: 10px 0;
   font-size: 0.85rem;
   backdrop-filter: blur(4px);
   z-index: 10;
+  margin-top: 60px;
 }
 @media (max-width: 480px) {
   .container {
-      padding: 15px;
+      
       border-radius: 10px;
+      padding-bottom: 60px;
   }
 
   .forecast-day {
