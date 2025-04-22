@@ -10,7 +10,7 @@ function getWeather(cityName) {
   const highlights = document.querySelector('.today-highlights');
   highlights.classList.add('show');
 
-  
+  // Current Weather
   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`)
     .then(response => {
       if (!response.ok) throw new Error('City not found');
@@ -26,16 +26,16 @@ function getWeather(cityName) {
       document.getElementById('wind').innerHTML = `${Math.round(data.wind.speed)} m/s`;
 
       document.querySelector('.today-highlights').style.display = 'block';
-      setBackground(data.weather[0].main);
+
+      
       setQuote();
       updateHarryMood(data.weather[0].main);
-
     })
     .catch(() => {
       alert('City not found, please try again.');
     });
 
-  
+  // Forecast
   fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`)
     .then(response => response.json())
     .then(forecastData => {
@@ -70,23 +70,6 @@ function getWeather(cityName) {
     });
 }
 
-
-function setBackground(weather) {
-  const backgrounds = {
-    clear: 'images/clear.png',
-    clouds: 'images/clouds.png',
-    rain: 'images/rain.png',
-    snow: 'images/snow.png',
-    thunderstorm: 'images/storm.png',
-    default: 'images/default.png'
-  };
-
-  const key = weather.toLowerCase();
-  const image = backgrounds[key] || backgrounds.default;
-  document.body.style.backgroundImage = `url(${image})`;
-}
-
-
 function setQuote() {
   const quotes = [
     "Every mountain top is within reach if you just keep climbing.",
@@ -97,46 +80,45 @@ function setQuote() {
   document.getElementById('quote').innerHTML =
     quotes[Math.floor(Math.random() * quotes.length)];
 }
+
 function updateHarryMood(weather) {
-  const harry = document.querySelector('.harry-helper img');
-  const quote = document.querySelector('.harry-helper p');
-  const parallaxBg = document.querySelector('.parallax-bg');
+  const avatar = document.getElementById('harry-avatar');
+  const dialogue = document.getElementById('harry-dialogue');
+  const parallax = document.querySelector('.parallax-bg');
   const moodMap = {
     Clear: {
       img: 'images/clear.png',
-      text: 'Harry says: Sunshine makes me purr 😸'
+      text: "Hi, I'm Harry 😺 – it's a sunny day, don’t forget your sunglasses!"
     },
     Clouds: {
       img: 'images/clouds.png',
-      text: 'Harry whispers: Purr... It’s a cozy cloudy day 🐱'
+      text: "Hi, I'm Harry 😺 Purr... It’s a cozy cloudy day 🐱"
     },
     Rain: {
       img: 'images/rain.png',
-      text: 'Harry complains: Ugh, not a fan of wet paws 🌧️'
+      text: " Hi, I'm Harry 😺 Ugh, not a fan of wet paws 🌧️"
     },
     Snow: {
       img: 'images/snow.png',
-      text: 'Harry meows: Snow is magical... but cold! ❄️'
+      text: "Hi, I'm Harry 😺 Snow is magical... but cold! ❄️"
     },
     Thunderstorm: {
       img: 'images/storm.png',
-      text: 'Harry hides: Can I stay under the blanket? ⚡'
+      text: "Hi, I'm Harry 😺 Can I stay under the blanket? ⚡"
     },
     Default: {
       img: 'images/default.png',
-      text: 'Harry says: Miaou! Let’s check the weather 🐾'
+      text: "Hi, I'm Harry 😺 Miaou! Let’s check the weather 🐾"
     }
   };
 
   const mood = moodMap[weather] || moodMap.Default;
-  harry.src = mood.img;
-  quote.innerText = mood.text;
-  if (parallaxBg) {
-    parallaxBg.style.backgroundImage = `url('${mood.img}')`;
+  avatar.src = mood.img;
+  dialogue.innerText = mood.text;
+  if (parallax) {
+    parallax.style.backgroundImage = `url('${mood.img}')`;
   }
 }
-
-
 
 function autocompleteCity() {
   const input = document.getElementById('city').value;
@@ -163,7 +145,6 @@ function autocompleteCity() {
       });
     });
 }
-
 
 function detectLocation() {
   if (navigator.geolocation) {

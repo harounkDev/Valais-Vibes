@@ -6,24 +6,19 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    color: #fff;
-    background-image: url("../images/default.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center bottom;
-    background-attachment: fixed;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    padding-bottom: 60px;
-    background-color: #1e2b3a;    
-    overflow: hidden;
-    transition: background-image 0.5s ease-in-out;
-    min-height: 100vh;
-    flex-direction: column;
-    justify-content: space-between;
-    backdrop-filter: blur(4px)
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  display: flex
+;
+  align-items: center;
+  padding-bottom: 60px;
+  background-color: #1e2b3a;
+  overflow: hidden;
+  /* transition: background-image 0.5s ease-in-out; */
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+  backdrop-filter: blur(4px);
 }
 
 .overlay {
@@ -252,27 +247,93 @@ button {
     font-family: 'Poppins', sans-serif;
   }
   
+
+  .harry-bubble {
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    margin: 20px 0;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .harry-avatar {
+    width: 200px;
+    height: 315px;
+    border-radius: 7%;
+    object-fit: cover;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .speech {
+    background: #fff;
+    color: #333;
+    border-radius: 15px;
+    padding: 15px;
+    max-width: 300px;
+    font-size: 0.9rem;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+  
+  .speech::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -15px;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-right: 15px solid #fff;
+    border-bottom: 0 solid transparent;
+  }
+  
+  .speech input {
+    margin-top: 10px;
+    padding: 8px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .bubble-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .bubble-actions button {
+    font-size: 0.9rem;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
 .parallax-bg {
   background-image: url('../images/default.png'); /* change based on default */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   position: fixed;
-  top: 0;
+  top: -50px;
   left: 0;
   width: 100vw;
   height: 100vh;
   z-index: -2;
   transform: translateZ(0);
   will-change: transform;
-  animation: parallaxScroll 20s infinite linear;
+  animation: parallaxScroll 8s infinite linear;
   opacity: 0.25; 
 }
 
 /* Smooth slow scroll effect */
 @keyframes parallaxScroll {
   0% { background-position: center 0px; }
-  100% { background-position: center 100px; }
+  50% { background-position: center 50px; }
+  100% { background-position: center 0px; }
+
+
 }
 
   
@@ -334,3 +395,5 @@ footer {
       font-size: 0.75rem;
   }
 }
+
+

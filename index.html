@@ -7,83 +7,71 @@
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
   <!-- CSS -->
   <link rel="stylesheet" href="CSS/style.css" />
 </head>
 <body>
   <div class="parallax-bg"></div>
-
   <div class="overlay"></div>
+
   <div class="app-wrapper" style="position: relative;">
-  <div class="container">
-    <h1>Peak Pulse</h1>
+    <div class="container">
+      <h1>Peak Pulse</h1>
 
-    
-    <input 
-      type="text" 
-      id="city" 
-      placeholder="Enter City" 
-      oninput="autocompleteCity()" 
-      autocomplete="off"
-    />
-    <ul id="suggestions"></ul>
-
-   
-    <button onclick="getWeather()">Explore</button>
-    <button class="detect-btn" onclick="detectLocation()">
-      <i>📍</i>
-      Detect My Location
-    </button>
-
-    
-    <div id="weather-info">
-      <img src="" id="icon" class="weather-icon" alt="Weather Icon" />
-      <div class="temp" id="temp">Hello 👋</div>
-      <div class="description" id="desc">Welcome to Peak Pulse With Harry</div>
-      <div class="quote" id="quote">Start exploring weather forecasts 🌄</div>
-    </div>
-
-    
-    <div id="today-highlights" class="today-highlights" style="display: none;">
-      <h3>Today’s Highlights</h3>
-      <div class="highlight-grid">
-        <div class="highlight-card">
-          <h4>Feels Like</h4>
-          <p id="feels-like">--</p>
-        </div>
-        <div class="highlight-card">
-          <h4>Humidity</h4>
-          <p id="humidity">--</p>
-        </div>
-        <div class="highlight-card">
-          <h4>Wind</h4>
-          <p id="wind">--</p>
+      <!-- Harry Conversation Bubble -->
+      <div class="harry-bubble">
+        <img class="harry-avatar" src="images/default.png" alt="Harry the Cat" id="harry-avatar">
+        <div class="speech">
+          <p id="harry-dialogue">Hi, I’m Harry 🐾! Ready to explore today’s weather? Type your city or let me detect your location!</p>
+          <input type="text" id="city" placeholder="Type a city..." oninput="autocompleteCity()" autocomplete="off" />
+          <ul id="suggestions"></ul>
+          <div class="bubble-actions">
+            <button onclick="getWeather()">Explore</button>
+            <button class="detect-btn" onclick="detectLocation()">📍 Detect My Location</button>
+          </div>
         </div>
       </div>
-    </div>
 
-    
-    <div id="forecast">
-      <h2>3-Day Forecast</h2>
-      <div class="forecast-container" id="forecast-container">
-        
+      <!-- Weather Information -->
+      <div id="weather-info">
+        <img src="" id="icon" class="weather-icon" alt="Weather Icon" />
+        <div class="temp" id="temp">Hello 👋</div>
+        <div class="description" id="desc">Welcome to Peak Pulse With Harry</div>
+        <div class="quote" id="quote">Start exploring weather forecasts 🌄</div>
+      </div>
+
+      <!-- Today's Highlights -->
+      <div id="today-highlights" class="today-highlights" style="display: none;">
+        <h3>Today’s Highlights</h3>
+        <div class="highlight-grid">
+          <div class="highlight-card">
+            <h4>Feels Like</h4>
+            <p id="feels-like">--</p>
+          </div>
+          <div class="highlight-card">
+            <h4>Humidity</h4>
+            <p id="humidity">--</p>
+          </div>
+          <div class="highlight-card">
+            <h4>Wind</h4>
+            <p id="wind">--</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3-Day Forecast -->
+      <div id="forecast">
+        <h2>3-Day Forecast</h2>
+        <div class="forecast-container" id="forecast-container"></div>
       </div>
     </div>
+  </div>
 
-    
-  </div>
-  <div class="harry-helper">
-    <img src="images/clear.png" alt="Harry says hi!">
-    <p>“Sunshine makes me purr 😸”</p>
-  </div>
-  </div>
   <footer>
     Made with ❤️ in Switzerland by Haroun Khenfri
   </footer>
 
   <!-- JS -->
   <script src="js/main.js"></script>
-
 </body>
 </html>
